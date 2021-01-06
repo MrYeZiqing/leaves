@@ -41,12 +41,14 @@ config webpack 配置
 ```
 
 ## 遵循规则
-1.最小化组件拆分
-2.单一职责模式
-3.多用函数式编程方式 map, filter, reduce, some, any, forEach, every
-4.页面文件不超过300行，超过考虑拆分组件
-5.命名规范
+```sh
+1.最小化组件拆分    
+2.单一职责模式  
+3.多用函数式编程方式 map, filter, reduce, some, any, forEach, every 
+4.页面文件不超过300行，超过考虑拆分组件 
+5.命名规范  
     css 使用BEM命名规范  
     js 驼峰式命名  
     组件 大驼峰命名  
     文件和文件夹 驼峰式命名
+```
