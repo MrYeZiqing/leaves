@@ -1,0 +1,23 @@
+{
+    "projectName":"leaves",
+    "sourceMap":{
+        "dev":true,
+        "prod":false
+    },
+    "BundleAnalyzer":false,
+    "devServer":{
+        "port":"8080",
+        "host":"localhost",
+        "openPage":"pages/index",
+        "proxy":{
+            "/api":{
+                "target":"xxx.com/api",
+                "pathRewrite": {
+                    "api":""
+                },
+                "secure": true,
+                "changeOrigin": true
+            }
+        }
+    }
+}
