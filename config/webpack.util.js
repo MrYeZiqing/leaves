@@ -1,4 +1,5 @@
 const glob = require('glob');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function setEntry () {
@@ -22,6 +23,14 @@ function getTemplate (name) {
     return './public/index.html';
 }
 
+function getFavicon (name) {
+    const files = glob.sync(`./src/pages/${name}/favicon.ico`);
+    if (files.length > 0) {
+        return files[0];
+    }
+    return path.resolve('public/favicon.ico');
+}
+
 function setHtmlPlugin () {
     const files = glob.sync('./src/pages/**/index.js');
     const options = [];
@@ -33,7 +42,8 @@ function setHtmlPlugin () {
                 filename:`pages/${name}/index.html`,
                 template:getTemplate(name),
                 chunks:['dll','vendors','common',`pages/${name}/index`],
-                hash:true
+                hash:true,
+                favicon:getFavicon(name)
             }));
         }
     });

@@ -1,7 +1,10 @@
-export function sum (a,b) {
-    return Number(a) + Number(b);
-}
-
+/**
+ *  对象安全取值
+ * @param {Object} obj
+ * @param {String} key
+ * @param {any} defalutVal
+ * @return {any}
+ */
 export function getObjectValue (obj,key,defalutVal = undefined) {
     if (!obj || !key) { return defalutVal; }
     const namespace = key.toString().split('.');
@@ -15,7 +18,17 @@ export function getObjectValue (obj,key,defalutVal = undefined) {
     return value;
 }
 
-export function getArrayValue (arr,defalutVal = undefined) {
-    if (!arr || !Array.isArray(arr)) { return defalutVal; }
-    return arr;
+/**
+ * 获取url参数
+ * @param  {[type]} name [description]
+ * @return {[type]}      [description]
+ */
+export function getUrlParam (name) {
+    const reg = new RegExp(`(^|&)${name}=([^&]*)(&|$)`);
+    const r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+        return decodeURIComponent(r[2]);
+    } else {
+        return null;
+    }
 }

@@ -5,12 +5,13 @@ class App extends Component {
         // console.log('卸载');
     }
     componentDidMount () {
-        throw 1;
     }
     render () {
         return (
             <div>
-                <Button>点击</Button>
+                <Button onClick={() => {
+                    location.href = '/pages/about';
+                }}>关于我们</Button>
             </div>
         );
     }

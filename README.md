@@ -14,6 +14,11 @@
  ```sh
     npm run build
 ```
+## 新建页面或组件
+```sh
+    npm run new
+```
+
 ## 约定目录
 ```sh
 src

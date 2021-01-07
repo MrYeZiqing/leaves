@@ -74,12 +74,12 @@ module.exports = merge({
     },
     devServer: {
         port: config.devServer.port || '8080',
-        contentBase:'../dist',
+        contentBase:path.resolve(__dirname,'dist'),
         compress:true,
         progress:true,
         host:config.devServer.host || 'localhost',
         open:true,
-        openPage: config.devServer.openPage || 'pages/index',
+        openPage: config.devServer.openPage || '/pages/index',
         hot:true,
         proxy: config.devServer.proxy
     },
