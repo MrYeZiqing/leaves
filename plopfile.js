@@ -21,20 +21,20 @@ module.exports = function (plop) {
             {
                 type:'input',
                 name:'name',
-                message:'请输入文件夹名称'
+                message:'请输入组件名称'
             },
             {
                 type:'list',
                 name:'type',
-                message:'您需要创建什么类型的文件夹',
+                message:'您需要创建什么类型的组件',
                 choices:[
                     {
-                        name:'page',
+                        name:'page组件',
                         value:'page',
                         checked:true
                     },
                     {
-                        name:'component',
+                        name:'component组件',
                         value:'component',
                         checked:false
                     }
@@ -48,8 +48,7 @@ module.exports = function (plop) {
             if (data.name) {
                 const Files = getDirList(type);
                 if (Files.includes(data.name)) {
-                    console.log('文件已存在');
-                    return [];
+                    throw new Error('组件已存在');
                 }
                 if (type === 'page') {
                     actions.push({

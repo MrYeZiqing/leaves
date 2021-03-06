@@ -10,6 +10,7 @@ class App extends Component {
         return (
             <div>
                 <Button onClick={() => {
+                    // 跳转
                     location.href = '/pages/about';
                 }}>关于我们</Button>
             </div>
